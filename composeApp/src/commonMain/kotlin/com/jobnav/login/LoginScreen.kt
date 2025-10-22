@@ -29,14 +29,17 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.painterResource
 import jobnav.composeapp.generated.resources.Res
 import jobnav.composeapp.generated.resources.background
 import jobnav.composeapp.generated.resources.ic_google
+import jobnav.composeapp.generated.resources.logo
 
 @Composable
 fun LoginScreen(
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier.fillMaxSize()) {
@@ -56,10 +59,15 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // 구글 로그인 버튼
-            GoogleLoginButton(
+            Image(
+                painter = painterResource(Res.drawable.logo),
+                contentDescription = "Login Background"
+            )
+
+            // 이메일 로그인 버튼
+            EmailLoginButton(
                 onClick = {
-                    // TODO: 구글 로그인 로직 구현
+                    navController.navigate("email_login")
                 }
             )
         }
@@ -108,8 +116,35 @@ fun GoogleLoginButton(
     }
 }
 
-@Preview
 @Composable
-fun LoginScreenPreview() {
-    LoginScreen()
+fun EmailLoginButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .clip(RoundedCornerShape(8.dp)),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.White
+        ),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 2.dp
+        )
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            // 로그인 텍스트
+            Text(
+                text = "Login with Email",
+                color = Color.Black,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Medium
+            )
+        }
+    }
 }
