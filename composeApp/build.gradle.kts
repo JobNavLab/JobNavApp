@@ -71,6 +71,9 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+        webMain.dependencies {
+            implementation(libs.kotlinx.coroutine)
+        }
         val jsMain by getting {
             resources.srcDir("composeApp/src/jsMain/resources")
         }

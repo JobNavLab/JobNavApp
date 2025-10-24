@@ -22,8 +22,5 @@ fun MainContent(
 
     Column(modifier = modifier.fillMaxSize()) {
         MainNavHost(navController = navController)
-        BottomNavigation(
-            currentDestination = navController.currentDestination
-        )
     }
 }

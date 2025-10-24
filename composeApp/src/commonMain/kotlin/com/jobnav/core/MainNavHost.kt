@@ -5,9 +5,9 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.jobnav.login.AuthViewModel
-import com.jobnav.login.LoginScreen
-import com.jobnav.login.EmailLoginScreenRoot
+import com.jobnav.presentation.login.AuthViewModel
+import com.jobnav.presentation.login.LoginScreen
+import com.jobnav.presentation.login.EmailLoginScreenRoot
 
 @Composable
 fun MainNavHost(
@@ -28,6 +28,41 @@ fun MainNavHost(
                 navController = navController
             )
         }
-        // TODO: 다른 화면들 추가
+        composable("home") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "myhome"
+            )
+        }
+        composable("myhome") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "myhome"
+            )
+        }
+        composable("friends") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "friends"
+            )
+        }
+        composable("quest") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "quest"
+            )
+        }
+        composable("map") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "map"
+            )
+        }
+        composable("setting") {
+            HomeScreen(
+                navController = navController,
+                currentScreen = "setting"
+            )
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.jobnav.firebase
+package com.jobnav.network.firebase
 
 expect object FirebaseModule {
 

@@ -1,4 +1,4 @@
-package com.jobnav.login
+package com.jobnav.presentation.login
 
 sealed interface LoginState {
     data object LoggedIn : LoginState

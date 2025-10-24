@@ -1,4 +1,4 @@
-package com.jobnav.login
+package com.jobnav.presentation.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -21,9 +21,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,12 +43,11 @@ fun EmailLoginScreenRoot(
     navController: NavController
 ) {
     val state by viewModel.state.collectAsState()
-    val coroutineScope = rememberCoroutineScope()
 
     when (state) {
         is LoginState.LoggedIn -> {
             println("📌📌📌 로그인 성공")
-            //navController.navigate("home")
+            navController.navigate("home")
         }
         is LoginState.Loading -> {
             // 로딩 상태 UI 표시
@@ -77,9 +74,7 @@ fun EmailLoginScreenRoot(
         is LoginState.NotLoggedIn -> {
             EmailLoginScreen(
                 onSign = { email, password ->
-                    coroutineScope.launch {
-                        viewModel.signIn(email, password)
-                    }
+                    viewModel.signIn(email, password)
                 }
             )
         }
