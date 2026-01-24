@@ -34,10 +34,6 @@ function LoginScreen() {
 
   return (
     <div className="login-screen">
-      <div className="login-background">
-        <img src={background} alt="배경" className="background-image" />
-      </div>
-      
       <div className="login-content">
         <div className="logo-container">
           <img src={logo} alt="취준내비 로고" className="app-logo" />

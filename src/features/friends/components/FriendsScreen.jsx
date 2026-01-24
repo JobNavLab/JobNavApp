@@ -1,8 +1,13 @@
+import './FriendsScreen.css';
+import emptyIcon from '../../../assets/images/common/empty.png';
+
 function FriendsScreen() {
   return (
-    <div style={{ padding: '20px', minHeight: 'calc(100vh - 70px)', paddingBottom: '90px' }}>
-      <h1>놀러가기</h1>
-      <p>친구 화면입니다.</p>
+    <div className="friends-screen">
+      <div className="friends-content">
+        <img src={emptyIcon} alt="Empty" className="empty-icon" />
+        <p className="empty-message">친구 기능은 추후 오픈 예정이에요</p>
+      </div>
     </div>
   );
 }

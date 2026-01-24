@@ -1,0 +1,31 @@
+.settings-screen {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding-bottom: 90px;
+  background-color: #FBF8F2;
+}
+
+.settings-content {
+  padding: 20px;
+}
+
+.logout-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #e55a2b;
+}
+
+.logout-button:active {
+  transform: scale(0.98);
+}

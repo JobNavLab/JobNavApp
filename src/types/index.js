@@ -7,6 +7,8 @@
  * @property {string} uid - Firebase Auth의 uid (document ID로 사용)
  * @property {string} email - 이메일 주소
  * @property {string|null} displayName - 표시 이름
+ * @property {number} userStage - 사용자 스테이지 (최초 가입 시 0)
+ * @property {Object<string, number>} currentQuest - 현재 퀘스트 정보 (Map 타입, 최초 가입 시 { chapter: 1, step: 1 })
  * @property {Timestamp} createdAt - 생성 시간
  * @property {Timestamp} updatedAt - 최종 수정 시간
  */

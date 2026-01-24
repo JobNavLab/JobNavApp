@@ -16,7 +16,7 @@ import { db } from '../../../config/firebase';
  * @param {Object} userData - 저장할 유저 데이터
  * @returns {Promise<void>}
  */
-export async function createOrUpdateUser(uid, userData) {
+export async function createOrUpdateUser(uid, userData, isNewUser = false) {
   try {
     const userRef = doc(db, 'users', uid);
     
@@ -30,10 +30,15 @@ export async function createOrUpdateUser(uid, userData) {
         updatedAt: serverTimestamp(),
       });
     } else {
-      // 새 document 생성
+      // 새 document 생성 (최초 회원가입)
       await setDoc(userRef, {
         uid,
         ...userData,
+        userStage: 0,
+        currentQuest: {
+          chapter: 1,
+          step: 1,
+        },
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
