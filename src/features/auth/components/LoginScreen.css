@@ -1,0 +1,129 @@
+.login-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.app-logo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+.login-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.login-button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:active {
+  transform: scale(0.98);
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.google-button {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #E0E0E0;
+}
+
+.google-button:hover {
+  background-color: #F5F5F5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+  .login-content {
+    padding: 0 20px;
+    gap: 50px;
+  }
+
+  .logo-container {
+    margin-top: 60px;
+  }
+
+  .app-logo {
+    max-width: 240px;
+  }
+
+  .login-buttons {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .login-button {
+    height: 52px;
+    font-size: 15px;
+  }
+}
