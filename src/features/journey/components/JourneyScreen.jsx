@@ -1,0 +1,10 @@
+function JourneyScreen() {
+  return (
+    <div style={{ padding: '20px', minHeight: 'calc(100vh - 70px)', paddingBottom: '90px' }}>
+      <h1>여정</h1>
+      <p>여정 화면입니다.</p>
+    </div>
+  );
+}
+
+export default JourneyScreen;

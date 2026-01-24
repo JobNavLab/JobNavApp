@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginScreen.css';
 import logo from '../../../assets/images/common/logo.png';
 import background from '../../../assets/images/common/background.png';
@@ -8,13 +9,21 @@ import { useAuth } from '../../../contexts/AuthContext';
 function LoginScreen() {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 이미 로그인된 경우 홈으로 리다이렉트
+    if (user) {
+      navigate('/home', { replace: true });
+    }
+  }, [user, navigate]);
 
   const handleGoogleLogin = async () => {
     try {
       setLoading(true);
       await signInWithGoogle();
-      // 로그인 성공 시 AuthContext가 자동으로 user 상태를 업데이트합니다
-      // 이후 라우팅으로 다른 화면으로 이동할 예정
+      // 로그인 성공 시 AuthContext가 자동으로 user 상태를 업데이트하고
+      // useEffect에서 자동으로 /home으로 리다이렉트됩니다
     } catch (error) {
       console.error('로그인 실패:', error);
       alert('로그인에 실패했습니다. 다시 시도해주세요.');
@@ -22,18 +31,6 @@ function LoginScreen() {
       setLoading(false);
     }
   };
-
-  // 이미 로그인된 경우 (나중에 다른 화면으로 리다이렉트)
-  if (user) {
-    return (
-      <div className="login-screen">
-        <div className="login-content">
-          <p>로그인되었습니다! {user.email}</p>
-          {/* TODO: 메인 화면으로 리다이렉트 */}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="login-screen">
