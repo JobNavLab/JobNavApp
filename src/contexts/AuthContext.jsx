@@ -1,9 +1,9 @@
 // 인증 상태를 전역으로 관리하는 Context
-// Android의 SharedPreferences나 ViewModel과 유사한 개념
 
 import { createContext, useContext, useState, useEffect } from 'react';
 import { auth } from '../config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { syncUserFromAuth } from '../features/user/services/userService';
 
 const AuthContext = createContext(null);
 
@@ -13,8 +13,16 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // Firebase 인증 상태 변화 감지
-    // Android의 onAuthStateChanged와 유사
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        // 로그인된 경우 Firestore에 user document 생성/업데이트
+        try {
+          await syncUserFromAuth(currentUser);
+        } catch (error) {
+          console.error('유저 document 동기화 실패:', error);
+          // 에러가 발생해도 로그인은 유지
+        }
+      }
       setUser(currentUser);
       setLoading(false);
     });

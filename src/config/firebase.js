@@ -3,8 +3,8 @@
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
-// TODO: Firebase Console에서 받은 설정 정보로 교체하세요
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -22,5 +22,8 @@ export const auth = getAuth(app);
 
 // Google Auth Provider 설정
 export const googleProvider = new GoogleAuthProvider();
+
+// Firestore 초기화
+export const db = getFirestore(app);
 
 export default app;
