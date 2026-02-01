@@ -22,7 +22,7 @@
  */
 
 /**
- * Firestore Quest Document (quest 컬렉션)
+ * Firestore Quest Document (quests 컬렉션)
  * @typedef {Object} QuestDocument
  * @property {number} journey - 여정 번호
  * @property {number} quest - 퀘스트 번호

@@ -1,5 +1,5 @@
 // 여정 관련 API 호출
-// Firestore journeys, quest 컬렉션 조회
+// Firestore journeys, quests 컬렉션 조회
 
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../../config/firebase';
@@ -34,7 +34,7 @@ export async function getJourney(journeyId) {
  */
 export async function getQuestsByJourney(journeyId) {
   try {
-    const questsRef = collection(db, 'quest');
+    const questsRef = collection(db, 'quests');
     const q = query(questsRef, where('journey', '==', journeyId));
     const snapshot = await getDocs(q);
 

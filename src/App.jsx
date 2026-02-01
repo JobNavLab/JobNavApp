@@ -23,7 +23,7 @@ function ProtectedRoute({ children }) {
 
   return (
     <>
-      {children}
+      <div className="main-content-wrap">{children}</div>
       <BottomNavigation />
     </>
   );

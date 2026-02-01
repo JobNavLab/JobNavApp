@@ -1,1 +1,5 @@
-/* 모바일 웹 앱용 스타일 - App.css는 비워둠 */
+/* 하단 네비(70px) 제외한 영역, 스크롤 없음 */
+.main-content-wrap {
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
