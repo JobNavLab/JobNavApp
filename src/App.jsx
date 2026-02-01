@@ -6,6 +6,7 @@ import HomeScreen from './features/home/components/HomeScreen';
 import FriendsScreen from './features/friends/components/FriendsScreen';
 import QuestScreen from './features/quest/components/QuestScreen';
 import JourneyScreen from './features/journey/components/JourneyScreen';
+import JourneyDetailScreen from './features/journey/components/JourneyDetailScreen';
 import SettingsScreen from './features/settings/components/SettingsScreen';
 import BottomNavigation from './components/layout/BottomNavigation';
 
@@ -26,6 +27,20 @@ function ProtectedRoute({ children }) {
       <BottomNavigation />
     </>
   );
+}
+
+function ProtectedRouteWithoutNav({ children }) {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <div>로딩 중...</div>;
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }
 
 function AppRoutes() {
@@ -62,6 +77,14 @@ function AppRoutes() {
           <ProtectedRoute>
             <JourneyScreen />
           </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/journey/:journeyId"
+        element={
+          <ProtectedRouteWithoutNav>
+            <JourneyDetailScreen />
+          </ProtectedRouteWithoutNav>
         }
       />
       <Route

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
 import { getUser } from '../../user/services/userService';
 import './JourneyScreen.css';
@@ -37,6 +38,7 @@ function getChapterState(currentChapter, chapterNumber) {
 
 function JourneyScreen() {
   const { user: authUser } = useAuth();
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -83,12 +85,14 @@ function JourneyScreen() {
           const state = getChapterState(currentJourney, chapterNumber);
           const imgSrc = CHAPTER_IMAGES[chapterNumber][state];
           return (
-            <div
+            <button
               key={chapterNumber}
+              type="button"
               className={`journey-chapter journey-chapter-${chapterNumber} ${state}`}
+              onClick={() => navigate(`/journey/${chapterNumber}`)}
             >
               <img src={imgSrc} alt={`Chapter ${chapterNumber}`} className="chapter-icon" />
-            </div>
+            </button>
           );
         })}
       </div>

@@ -12,3 +12,22 @@
  * @property {Timestamp} createdAt - 생성 시간
  * @property {Timestamp} updatedAt - 최종 수정 시간
  */
+
+/**
+ * Firestore Journey Document (journeys 컬렉션, Document ID = Journey ID)
+ * @typedef {Object} JourneyDocument
+ * @property {number} journey - 여정 번호 (1~5)
+ * @property {string} description - 설명 (\n으로 줄바꿈)
+ * @property {string} link - 퀘스트 설명 링크 URL
+ */
+
+/**
+ * Firestore Quest Document (quest 컬렉션)
+ * @typedef {Object} QuestDocument
+ * @property {number} journey - 여정 번호
+ * @property {number} quest - 퀘스트 번호
+ * @property {string} id - 퀘스트 ID (예: "101")
+ * @property {string} nextId - 다음 퀘스트 ID (예: "102")
+ * @property {string} title - 제목
+ * @property {string} description - 설명
+ */

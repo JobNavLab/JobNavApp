@@ -1,0 +1,175 @@
+.journey-detail-screen {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 16px;
+  padding-top: 48px;
+  padding-bottom: 90px;
+  background-color: #F5F5F5;
+  overflow: hidden;
+}
+
+.journey-detail-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-detail-loading,
+.journey-detail-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  font-size: 16px;
+  color: #666;
+}
+
+.journey-detail-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+.journey-detail-icon-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.journey-detail-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.journey-detail-star {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ff9f43;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-detail-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.journey-detail-description {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #F3973A;
+  white-space: pre-line;
+}
+
+.journey-detail-name {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #F3973A;
+}
+
+.journey-detail-quests {
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.journey-detail-quest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.journey-detail-quest-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.journey-detail-quest-item:last-child {
+  border-bottom: none;
+}
+
+.quest-badge {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #fff3e0;
+  color: #e65100;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.quest-title {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.journey-detail-quest-empty {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+}
+
+.journey-detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journey-detail-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.journey-detail-btn:active {
+  opacity: 0.9;
+}
+
+.journey-detail-btn.primary {
+  background: #ff6b35;
+  color: #fff;
+}
+
+.journey-detail-btn.secondary {
+  background: #5d4e37;
+  color: #fff;
+}
