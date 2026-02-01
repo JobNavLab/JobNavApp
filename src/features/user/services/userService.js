@@ -36,8 +36,8 @@ export async function createOrUpdateUser(uid, userData, isNewUser = false) {
         ...userData,
         userStage: 0,
         currentQuest: {
-          chapter: 1,
-          step: 1,
+          journey: 1,
+          quest: 1,
         },
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
